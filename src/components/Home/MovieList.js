@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { getAllMovies, getAllShows } from '../../common/features/movies/movieSlice';
 import MovieCard from './MovieCard';
+import Slider from 'react-slick';
+import sliderSettings from '../../common/sliderSettings';
 
 function MovieList() {
     const movies = useSelector(getAllMovies);
@@ -19,16 +21,12 @@ function MovieList() {
     );
 
     return (
-        <div className="my-5">
+        <div className="my-5 mx-4">
             <h2 className="mb-4 font-bold text-secondary-text"> Movies </h2>
-            <div className="grid gap-4" style={{gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr)'}}>
-                {renderMovies}
-            </div>
+            <Slider {...sliderSettings}> {renderMovies} </Slider>
 
             <h2 className="mt-16 mb-4 font-bold text-secondary-text"> Show List </h2>
-            <div className="grid gap-4" style={{gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr)'}}>
-                {renderShows}
-            </div>
+            <Slider {...sliderSettings}> {renderShows} </Slider>
         </div>
     )
 }

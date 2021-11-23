@@ -5,14 +5,15 @@ import { fetchAsyncMovies, fetchAsyncShows } from '../../common/features/movies/
 
 function Home() {
     const dispatch = useDispatch();
+    
+    const searchTerm = 'Sabrina';
     useEffect(() => {
-        dispatch(fetchAsyncMovies());
-        dispatch(fetchAsyncShows());
+        dispatch(fetchAsyncMovies(searchTerm));
+        dispatch(fetchAsyncShows(searchTerm));
     }, [dispatch]);
 
     return (
         <>
-            <div className="">Banner Div</div>
             <MovieList />
         </>
     )

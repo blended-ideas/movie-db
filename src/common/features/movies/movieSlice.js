@@ -3,15 +3,13 @@ import movieAPI from "../../apis/movieAPI";
 import { movieAPIKey } from "../../apis/movieAPIKey";
 import { produce } from 'immer';
 
-export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', async (arg, { getState }) => {
-    const movieText = 'Mission';
-    const response = await movieAPI.get(`?apiKey=${movieAPIKey}&s=${movieText}&type=movie`);
+export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', async (term) => {
+    const response = await movieAPI.get(`?apiKey=${movieAPIKey}&s=${term}&type=movie`);
     return response.data;
 });
 
-export const fetchAsyncShows = createAsyncThunk('movies/fetchAsyncShows', async (arg, { getState }) => {
-    const showText = 'Mission';
-    const response = await movieAPI.get(`?apiKey=${movieAPIKey}&s=${showText}&type=series`);
+export const fetchAsyncShows = createAsyncThunk('movies/fetchAsyncShows', async (term) => {
+    const response = await movieAPI.get(`?apiKey=${movieAPIKey}&s=${term}&type=series`);
     return response.data;
 });
 

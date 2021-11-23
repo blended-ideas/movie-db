@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function MovieCard({Poster: poster, Title: title, Year: year, imdbID}) {
     return (
         <Link to={`/movie/${imdbID}`}>
-            <div className="bg-secondary text-secodary-text rounded flex flex-col cursor-pointer">
+            <div className="bg-secondary text-secodary-text rounded flex flex-col cursor-pointer mx-2">
                 <div className="overflow-hidden">
                     <img src={poster} alt={title} className="w-full h-auto object-cover object-top hover:scale-125 transition-all duration-500"  style={{maxHeight: '300px'}}/>
                 </div>
